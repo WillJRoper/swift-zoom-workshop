@@ -10,6 +10,7 @@ JOBS=${JOBS:-4}
   exit 1
 }
 
+# MUSIC-2 needs OpenMP, so macOS uses Homebrew GCC instead of Apple Clang.
 if [[ $(uname -s) == Darwin ]]; then
   GCC_BIN=$(brew --prefix gcc)/bin
   GCC_CANDIDATES=("$GCC_BIN"/gcc-[0-9]*)
@@ -25,6 +26,7 @@ fi
 
 (
   cd "$MUSIC_DIR"
+  # Configure an out-of-source release build, then compile in parallel.
   cmake -B build -DCMAKE_BUILD_TYPE=Release
   cmake --build build -j "$JOBS"
 )

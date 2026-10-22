@@ -11,6 +11,7 @@ CONFIGURE_FLAGS=(
   --enable-ipo
   --disable-mpi
 )
+# Add site-specific configure options with SWIFT_CONFIGURE_FLAGS if needed.
 read -r -a EXTRA_CONFIGURE_FLAGS <<< "${SWIFT_CONFIGURE_FLAGS:-}"
 
 [[ -x "$SWIFT_DIR/autogen.sh" ]] || {
@@ -18,6 +19,7 @@ read -r -a EXTRA_CONFIGURE_FLAGS <<< "${SWIFT_CONFIGURE_FLAGS:-}"
   exit 1
 }
 
+# Homebrew libraries are not on SWIFT's default search path on macOS.
 if [[ $(uname -s) == Darwin ]]; then
   CONFIGURE_FLAGS+=(
     --disable-hand-vec
@@ -33,6 +35,7 @@ fi
 
 (
   cd "$SWIFT_DIR"
+  # Generate configure, select EAGLE-XL above, then compile with JOBS workers.
   ./autogen.sh
   ./configure "${CONFIGURE_FLAGS[@]}" "${EXTRA_CONFIGURE_FLAGS[@]}"
   make -j "$JOBS"

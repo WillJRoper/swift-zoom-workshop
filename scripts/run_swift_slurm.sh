@@ -10,5 +10,4 @@ RUN_ID=${RUN_ID:-"slurm-${SLURM_JOB_ID}"}
 THREADS=${SLURM_CPUS_PER_TASK:-1}
 STEPS=${STEPS:-16}
 
-export OMP_NUM_THREADS="$THREADS"
 RUN_DIR="$ROOT/runs/$RUN_ID" "$ROOT/scripts/run_swift.sh" run "$THREADS" "$STEPS" "$@"
