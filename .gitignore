@@ -1,0 +1,11 @@
+.ipynb_checkpoints/
+.venv/
+runs/*
+!runs/.gitkeep
+data/*.hdf5
+data/Eagle_camb_file.txt
+__pycache__/
+*.pyc
+.DS_Store
+slides/node_modules/
+slides/dist/
