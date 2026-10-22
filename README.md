@@ -20,8 +20,9 @@ reduce its finest level from 13 to 10 so that it runs in a reasonable time on a 
 Clone the workshop and its MUSIC-2 and SWIFT dependencies:
 
 ```bash
-git clone --recurse-submodules <workshop-repository-url>
+git clone <workshop-repository-url>
 cd SWIFTZoomWorkshop
+git submodule update --init dependencies/MUSIC2 dependencies/SWIFT
 ```
 
 SWIFT is pinned from the `zoom-swiftcon` branch in `dependencies/SWIFT`.

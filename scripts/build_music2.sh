@@ -6,7 +6,7 @@ MUSIC_DIR=${MUSIC_DIR:-"$ROOT/dependencies/MUSIC2"}
 JOBS=${JOBS:-4}
 
 [[ -f "$MUSIC_DIR/CMakeLists.txt" ]] || {
-  echo "Missing MUSIC-2 submodule. Run: git submodule update --init --recursive" >&2
+  echo "Missing MUSIC-2 submodule. Run: git submodule update --init dependencies/MUSIC2" >&2
   exit 1
 }
 

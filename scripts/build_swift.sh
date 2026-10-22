@@ -9,7 +9,7 @@ CONFIGURE_FLAGS=(--enable-ipo --disable-mpi)
 read -r -a EXTRA_CONFIGURE_FLAGS <<< "${SWIFT_CONFIGURE_FLAGS:-}"
 
 [[ -x "$SWIFT_DIR/autogen.sh" ]] || {
-  echo "Missing SWIFT submodule. Run: git submodule update --init --recursive" >&2
+  echo "Missing SWIFT submodule. Run: git submodule update --init dependencies/SWIFT" >&2
   exit 1
 }
 
