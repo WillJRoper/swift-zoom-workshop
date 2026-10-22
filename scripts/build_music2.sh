@@ -23,10 +23,10 @@ if [[ $(uname -s) == Darwin ]]; then
   export FC="${FC:-$GCC_BIN/gfortran}"
 fi
 
-cmake -S "$MUSIC_DIR" -B "$MUSIC_DIR/build" \
-  -DCMAKE_BUILD_TYPE=Release \
-  -DENABLE_PANPHASIA=ON \
-  -DENABLE_CLASS=OFF
-cmake --build "$MUSIC_DIR/build" -j "$JOBS"
+(
+  cd "$MUSIC_DIR"
+  cmake -B build -DCMAKE_BUILD_TYPE=Release
+  cmake --build build -j "$JOBS"
+)
 
 echo "MUSIC-2 built at $MUSIC_DIR/build/MUSIC"
