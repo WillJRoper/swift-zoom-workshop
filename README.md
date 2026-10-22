@@ -5,7 +5,7 @@ with MUSIC-2 and SWIFT.
 
 The included notebooks walk you through making initial conditions and setting up and running a zoom simulation.
 
-You can either run things on your laptop (but I offer 0 warranty that it will work) or on a cluster (where I offer a tiny bit more warranty, but still very little, your environment is your own responsibility).
+You can either run things on your laptop (but I offer zero warranty that it will work well) or on a cluster (where I offer a tiny bit more warranty, but still very little, your environment is your own responsibility).
 
 The workshop has two notebooks:
 
@@ -53,7 +53,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-Then open `notebooks/01_ics.ipynb` and begin the workshop in your notebook software of choice (or follow the notebook in the browser if on a HPC).
+Then open `notebooks/01_ics.ipynb` in your notebook software of choice. Copy its Markdown command blocks into a terminal from the repository root; notebook code cells are only used to inspect and plot outputs.
 
 ## MUSIC-2 and SWIFT
 
