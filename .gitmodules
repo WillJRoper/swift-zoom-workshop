@@ -1,0 +1,8 @@
+[submodule "dependencies/MUSIC2"]
+	path = dependencies/MUSIC2
+	url = https://github.com/cosmo-sims/MUSIC2.git
+	branch = master
+[submodule "dependencies/SWIFT"]
+	path = dependencies/SWIFT
+	url = https://gitlab.cosma.dur.ac.uk/swift/swiftsim.git
+	branch = zoom-swiftcon
