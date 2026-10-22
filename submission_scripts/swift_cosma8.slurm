@@ -19,7 +19,6 @@ module load ucx/1.17.0 parallel_hdf5/1.14.4 fftw/3.3.10 gsl/2.8
 ROOT=${WORKSHOP_ROOT:-${SLURM_SUBMIT_DIR:?Submit from the repository root or set WORKSHOP_ROOT}}
 MODE=${MODE:-run}
 STEPS=${STEPS:-16}
-export OMP_NUM_THREADS="$SLURM_CPUS_PER_TASK"
 
 [[ -x "$ROOT/scripts/run_swift.sh" ]] || { echo "Workshop not found at $ROOT" >&2; exit 1; }
 
