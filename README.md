@@ -85,3 +85,7 @@ scripts/build_swift_eagle.sh
 scripts/download_eagle_tables.sh
 configs/swift_eagle.yml
 ```
+
+## Download ICs
+
+If you need to download ICs you can get them here: https://drive.google.com/file/d/1HACr4SJKJTYEH9DG26rJzUo0aX4sD7s-/view?usp=sharing (14MB).
