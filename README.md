@@ -3,15 +3,14 @@
 This repository contains a hands-on introduction to running zoom simulations
 with MUSIC-2 and SWIFT.
 
-The included notebooks will walk you through the process of making initial conditions, setting up and running a zoom simulation, and breifly analyzing the results.
+The included notebooks walk you through making initial conditions and setting up and running a zoom simulation.
 
 You can either run things on your laptop (but I offer 0 warranty that it will work) or on a cluster (where I offer a tiny bit more warranty, but still very little, your environment is your own responsibility).
 
-The workshop has three notebooks:
+The workshop has two notebooks:
 
 1. `notebooks/01_ics.ipynb` - make and inspect the initial conditions.
 2. `notebooks/02_zoom_run.ipynb` - choose the geometry and run SWIFT.
-3. `notebooks/03_zoom_analysis.ipynb` - load the snapshots and make images.
 
 The example uses the Lagrangian region from TESSERA zoom `P00000/R0000`. We
 reduce its finest level from 13 to 10 so that it runs in a reasonable time on a laptop.
@@ -67,7 +66,15 @@ scripts/build_swift.sh
 
 ## Running on an HPC
 
-If you are running on a cluster, you can load the modules for your environment, clone the repo and submodules, and then run the build scripts. Then instead of running the run scripts directly, you can submit the job scripts in `submission_scripts/` to your scheduler. The job scripts in here assume you are using cosma8 and default to the serial partition.
+If you are running on a cluster, you can load the modules for your environment, clone the repo and submodules, and then run the build scripts. On COSMA8, submit the serial jobs with:
+
+```bash
+sbatch submission_scripts/music_cosma8.slurm
+sbatch --export=ALL,MODE=geometry submission_scripts/swift_cosma8.slurm
+sbatch submission_scripts/swift_cosma8.slurm
+```
+
+The SWIFT job defaults to 16 steps and the notebook's three geometry values. Override them with `--export`, for example `sbatch --export=ALL,STEPS=32,MESH_SIDE_LENGTH=256 submission_scripts/swift_cosma8.slurm`. Both jobs use the `cosma8-serial` partition and account `dp004`.
 
 ## SWIFT-EAGLE extension
 
