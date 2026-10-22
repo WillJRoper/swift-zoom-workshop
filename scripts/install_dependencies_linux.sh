@@ -31,6 +31,7 @@ fi
   libfftw3-dev \
   libgsl-dev \
   libhdf5-dev \
+  libtbb-dev \
   libtool \
   pkg-config \
   python3 \

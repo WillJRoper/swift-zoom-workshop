@@ -24,9 +24,10 @@ brew install \
   gcc \
   git \
   gsl \
-  hdf5 \
+  hdf5@1.10 \
   libtool \
   pkg-config \
-  python
+  python \
+  tbb
 
 echo "Workshop build dependencies installed."
