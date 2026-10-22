@@ -3,4 +3,3 @@ matplotlib
 h5py
 PyYAML
 jupyterlab
-swiftsimio
