@@ -1,0 +1,64 @@
+MetaData:
+  run_name: SWIFTZoomWorkshop-DMO
+
+# SWIFT works internally in 10^10 solar masses, Mpc, and km/s.
+InternalUnitSystem:
+  UnitMass_in_cgs:     1.98848e43
+  UnitLength_in_cgs:   3.08567758e24
+  UnitVelocity_in_cgs: 1e5
+  UnitCurrent_in_cgs:  1
+  UnitTemp_in_cgs:     1
+
+Cosmology:
+  Omega_cdm:    0.30816271
+  Omega_lambda: 0.62285261
+  Omega_b:      0.06898468
+  h:            0.66979059
+  w_0:          -0.47977999
+  w_a:          -2.23444064
+  a_begin:      0.015625
+  a_end:        0.03
+
+# Cosmological timestep limits are in Delta log(a).
+TimeIntegration:
+  dt_min: 1e-8
+  dt_max: 1e-2
+
+Snapshots:
+  basename:           snapshot
+  scale_factor_first: 0.015625
+  delta_time:         1.01
+  compression:        1
+
+Statistics:
+  scale_factor_first: 0.015625
+  delta_time:         1.01
+
+Scheduler:
+  max_top_level_cells: 8
+  cell_split_size:     50
+
+Gravity:
+  eta:                        0.025
+  MAC:                        adaptive
+  theta_cr:                   0.7
+  epsilon_fmm:                0.001
+  mesh_side_length:           128  # Participants will vary this in notebook 2.
+  comoving_DM_softening:      0.09331275
+  max_physical_DM_softening:  0.09331275
+  softening_ratio_background: 0.04
+
+InitialConditions:
+  file_name:                ics.hdf5
+  periodic:                 1
+  cleanup_h_factors:        0
+  cleanup_velocity_factors: 0
+
+# Baseline cell geometry. Notebook 2 overrides the zoom and background counts.
+ZoomRegion:
+  zoom_min_top_level_cells: 8
+  bkg_top_level_cells:      8
+  region_pad_factor:        1.1
+  neighbour_max_tree_depth: -1
+  bkg_subdepth_diff_grav:   4
+  max_com_dx:               0.1
