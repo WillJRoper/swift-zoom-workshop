@@ -25,7 +25,7 @@ export OMP_NUM_THREADS="$SLURM_CPUS_PER_TASK"
 
 OVERRIDES=(
   "ZoomRegion:zoom_min_top_level_cells:${ZOOM_MIN_CELLS:-8}"
-  "ZoomRegion:bkg_top_level_cells:${BACKGROUND_CELLS:-8}"
+  "ZoomRegion:bkg_top_level_cells:${BACKGROUND_CELLS:-33}"
   "Gravity:mesh_side_length:${MESH_SIDE_LENGTH:-128}"
 )
 
