@@ -27,7 +27,7 @@ TimeIntegration:
 Snapshots:
   basename:           snapshot
   scale_factor_first: 0.015625
-  delta_time:         1.01
+  delta_time:         1.1
   compression:        1
 
 Statistics:

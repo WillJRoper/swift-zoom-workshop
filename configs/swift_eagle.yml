@@ -27,7 +27,7 @@ TimeIntegration:
 Snapshots:
   basename:                 snapshot_eagle
   scale_factor_first:       0.015625
-  delta_time:               1.01
+  delta_time:               1.1
   compression:              1
   recording_triggers_part:  [-1, -1]
   recording_triggers_bpart: [-1, -1]
