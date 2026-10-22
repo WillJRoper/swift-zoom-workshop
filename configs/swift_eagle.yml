@@ -88,7 +88,7 @@ InitialConditions:
 
 ZoomRegion:
   zoom_min_top_level_cells: 8
-  bkg_top_level_cells:      8
+  bkg_top_level_cells:      33
   region_pad_factor:        1.1
   neighbour_max_tree_depth: -1
   bkg_subdepth_diff_grav:   4

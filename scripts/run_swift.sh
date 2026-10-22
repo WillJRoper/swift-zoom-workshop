@@ -41,7 +41,7 @@ for value in "$@"; do
 done
 printf '%s\n' "$@" > "$RUN_DIR/overrides.txt"
 
-COMMON=(--cosmology --self-gravity --zoom --threads="$THREADS" --timers=1 --verbose=1)
+COMMON=(--cosmology --self-gravity --zoom --threads="$THREADS" --timers=1 -v 1)
 
 if [[ "$MODE" == geometry ]]; then
   (
