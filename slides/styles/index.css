@@ -1,0 +1,186 @@
+:root {
+  --ink: #0f172a;
+  --muted: #475569;
+  --line: #e2e8f0;
+  --accent: #1f5f8b;
+  /* Region colours: zoom blue matches the SWIFT geometry plots. */
+  --hr: #0b4f8a;
+  --bkg: #2a6b67;
+  --bad: #b91c1c;
+  --good: #15803d;
+}
+
+.slidev-layout {
+  color: var(--ink);
+  background: white;
+  padding: 2rem 3rem;
+  font-size: 1.35rem;
+}
+
+.slidev-layout h1 {
+  font-size: 2.2rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.2rem;
+}
+
+.slidev-layout h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.slidev-layout h3 {
+  font-size: 1.4rem;
+  font-weight: 650;
+  margin-bottom: 0.3rem;
+}
+
+.slidev-layout p,
+.slidev-layout li {
+  line-height: 1.5;
+}
+
+.slidev-layout.cover,
+.slidev-layout.section {
+  background: radial-gradient(circle at 85% 20%, #e6f0f8 0, white 60%);
+}
+
+.slidev-layout.cover h1 {
+  font-size: 3.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.slidev-layout.section h1 {
+  font-size: 2.8rem;
+  color: var(--accent);
+}
+
+.slidev-layout.cover h2,
+.slidev-layout.section h2 {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.muted { color: var(--muted); }
+a { color: var(--accent); }
+
+.big, .big li { font-size: 1.6rem; }
+
+/* theme-default fades the paragraph after h1, which hits full-width plots */
+.slidev-layout h1 + p {
+  opacity: 1;
+}
+
+/* Code: large enough for the back of the room */
+.slidev-code {
+  font-size: 1.3rem !important;
+  line-height: 1.45 !important;
+}
+.slidev-code .slidev-code-dishonored {
+  opacity: 0.45;
+}
+
+/* Colour roles */
+.hr-t { color: var(--hr); font-weight: 650; }
+.bkg-t { color: var(--bkg); font-weight: 650; }
+.bad-t { color: var(--bad); }
+.good-t { color: var(--good); }
+.hr-b { border-color: var(--hr) !important; }
+.bkg-b { border-color: var(--bkg) !important; }
+.bad-b { border-color: var(--bad) !important; }
+.good-b { border-color: var(--good) !important; }
+
+.legend { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.chip {
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  color: white;
+  font-size: 1.15rem;
+}
+.chip.hr { background: var(--hr); }
+.chip.bkg { background: var(--bkg); }
+.chip.bad { background: var(--bad); }
+.chip.good { background: var(--good); }
+
+.callout {
+  border-left: 6px solid var(--accent);
+  background: #f1f6fa;
+  padding: 0.6rem 1rem;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.caption {
+  text-align: center;
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin-top: 0.6rem;
+}
+
+.card, .panel {
+  border: 2px solid var(--line);
+  border-left-width: 8px;
+  border-radius: 6px;
+  padding: 0.8rem 1.2rem;
+}
+.panel { padding: 0.4rem 0.6rem; text-align: center; border-left-width: 2px; border-top-width: 6px; }
+.panel img { margin: 0 auto; }
+.panel p { margin: 0.3rem 0 0; }
+
+.plot { max-width: 100%; object-fit: contain; }
+
+.stat { text-align: center; }
+.stat .num { font-size: 2.6rem; font-weight: 700; color: var(--hr); }
+.stat .lbl { color: var(--muted); font-size: 1.3rem; }
+
+/* Big facts beside a plot */
+.facts div { font-size: 1.6rem; margin: 0.7rem 0; }
+.facts b { font-size: 2rem; }
+
+/* Legend for the SWIFT cell-type plots (colours sampled from the plots) */
+.keys { display: flex; justify-content: center; gap: 1rem; font-size: 1.1rem; margin-top: 0.3rem; }
+.keys span::before {
+  content: "";
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-right: 0.3em;
+  vertical-align: -0.1em;
+  border: 1px solid #333;
+}
+.k-bkg::before { background: #bde6e3; }
+.k-nb::before { background: #f3a262; }
+.k-zoom::before { background: #084a82; }
+
+.flow { display: flex; align-items: center; gap: 0.7rem; font-size: 1.5rem; }
+.flow div {
+  border: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.5rem 0.9rem;
+}
+.flow .stop { border-color: var(--bad); color: var(--bad); font-weight: 650; }
+
+/* Nested-resolution sketch on the intro slide */
+.nest { display: flex; justify-content: center; }
+.ring {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.r1 { width: 340px; height: 340px; background: #dbeceb; }
+.r2 { width: 240px; height: 240px; background: #a9d2cf; }
+.r3 { width: 150px; height: 150px; background: #6fb2ad; }
+.core {
+  width: 90px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--hr);
+  color: white;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slidev-layout table { font-size: 1.45rem; }
+.slidev-layout td, .slidev-layout th { padding: 0.25rem 0.8rem; }
