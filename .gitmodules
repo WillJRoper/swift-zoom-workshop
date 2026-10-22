@@ -4,5 +4,5 @@
 	branch = master
 [submodule "dependencies/SWIFT"]
 	path = dependencies/SWIFT
-	url = https://gitlab.cosma.dur.ac.uk/swift/swiftsim.git
+	url = https://github.com/SWIFTSIM/SWIFT.git
 	branch = zoom-swiftcon
