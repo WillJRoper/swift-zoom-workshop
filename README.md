@@ -1,9 +1,11 @@
 # SWIFT Zoom Workshop
 
 This repository contains a hands-on introduction to running zoom simulations
-with MUSIC-2 and SWIFT. We will make a small set of zoom initial conditions,
-choose a SWIFT cell geometry, run the simulation for a fixed number of steps,
-and have a look at what came out.
+with MUSIC-2 and SWIFT.
+
+The included notebooks will walk you through the process of making initial conditions, setting up and running a zoom simulation, and breifly analyzing the results.
+
+You can either run things on your laptop (but I offer 0 warranty that it will work) or on a cluster (where I offer a tiny bit more warranty, but still very little, your environment is your own responsibility).
 
 The workshop has three notebooks:
 
@@ -12,8 +14,7 @@ The workshop has three notebooks:
 3. `notebooks/03_zoom_analysis.ipynb` - load the snapshots and make images.
 
 The example uses the Lagrangian region from TESSERA zoom `P00000/R0000`. We
-reduce its finest level from 13 to 10 so that it remains a teaching run rather
-than a production resimulation.
+reduce its finest level from 13 to 10 so that it runs in a reasonable time on a laptop.
 
 ## Getting started
 
@@ -24,82 +25,56 @@ git clone --recurse-submodules <workshop-repository-url>
 cd SWIFTZoomWorkshop
 ```
 
-If you already cloned without the dependencies, fetch them with:
-
-```bash
-git submodule update --init --recursive
-```
-
 SWIFT is pinned from the `zoom-swiftcon` branch in `dependencies/SWIFT`.
 MUSIC-2 is in `dependencies/MUSIC2`.
 
-Install the native build dependencies on Debian/Ubuntu Linux with:
+If using your laptop you will need to install the native build dependencies.
+
+Install on Debian/Ubuntu Linux with:
 
 ```bash
 scripts/install_dependencies_linux.sh
 ```
 
-On macOS, install Apple's command-line tools and Homebrew first, then run:
+Or on macOS, install Apple's command-line tools and Homebrew first, then run:
 
 ```bash
 scripts/install_dependencies_macos.sh
 ```
 
 These install C, C++, and Fortran compilers plus CMake, autotools, HDF5, FFTW,
-GSL, pkg-config, Git, and Python. The macOS script installs GNU GCC because
-MUSIC-2 requires OpenMP.
+GSL, TBB, pkg-config, Git, and Python. The macOS script installs GNU GCC because
+MUSIC-2 requires OpenMP, and HDF5 1.10 for the known-good SWIFT build.
 
-Create a Python environment and start Jupyter:
+Create a Python environment.
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
-jupyter lab
 ```
 
-Then open `notebooks/01_ics.ipynb` and work through the notebooks in order.
+Then open `notebooks/01_ics.ipynb` and begin the workshop in your notebook software of choice (or follow the notebook in the browser if on a HPC).
 
 ## MUSIC-2 and SWIFT
 
-The notebooks use these scripts to build the required versions:
+To build MUSIC-2 and SWIFT you can run the following scripts. The build scripts will use the bundled Git submodules. All these do is run the build commands, but if you're curious, you can look inside the scripts to see what they do.
 
 ```bash
 scripts/build_music2.sh
 scripts/build_swift.sh
 ```
 
-The build scripts use the bundled Git submodules. MUSIC-2 needs CMake, Fortran,
-OpenMP, FFTW3, GSL, and HDF5. SWIFT needs autotools, FFTW3, GSL, and HDF5.
-Set MUSIC-2's runtime thread count with `NumThreads` under `[execution]` in
-`configs/music.conf`.
-
-We will provide `data/zoom_ics.hdf5` before the workshop. This lets you move on
-to the SWIFT notebooks if MUSIC-2 cannot be built on your machine.
-
 ## Running on an HPC
 
-The main exercise uses one threaded SWIFT process, both locally and on an HPC.
-The notebook gives the local command. A simple one-node Slurm script is also
-provided:
-
-```bash
-sbatch --cpus-per-task=32 --mem=64G --time=00:30:00 \
-  scripts/run_swift_slurm.sh
-```
-
-Add your site's account and partition options when submitting.
+If you are running on a cluster, you can load the modules for your environment, clone the repo and submodules, and then run the build scripts. Then instead of running the run scripts directly, you can submit the job scripts in `submission_scripts/` to your scheduler. The job scripts in here assume you are using cosma8 and default to the serial partition.
 
 ## SWIFT-EAGLE extension
 
-The optional extension has its own build script and parameter file:
+If you want to prove full physics runs work you can also later rerun the zoom with the SWIFT-EAGLE model. To do so you will need the EAGLE-XL configuration and various input files. There are scripts contained within the repository to build SWIFT-EAGLE and download the necessary tables:
 
 ```bash
 scripts/build_swift_eagle.sh
 scripts/download_eagle_tables.sh
 configs/swift_eagle.yml
 ```
-
-The download script runs SWIFT's own table scripts and puts the PS2020 cooling,
-EAGLE yield, and photometry tables in `runs/eagle`, where the parameter file
-expects them when that directory is used for the extension run.
