@@ -1,0 +1,98 @@
+{
+  "bbox": {
+    "box_ic_mpc": 2388.806328258508,
+    "box_sim_mpc": 2388.806328258508,
+    "center_abs_mpc": [
+      1589.88818359375,
+      792.0175170898438,
+      669.4103088378905
+    ],
+    "extent_abs_mpc": [
+      107.0009765625,
+      93.3682861328125,
+      109.26495361328125
+    ],
+    "maxs_mpc": [
+      47.74069479607465,
+      45.54330897666728,
+      61.52228054158559
+    ],
+    "mins_mpc": [
+      -59.26028176642535,
+      -47.82497715614522,
+      -47.74267307169566
+    ],
+    "pad_mpc": 2.0,
+    "region_point_count": 35608,
+    "region_point_file": "catalogue/region_points/p00000_r0310_i000_pct038.921.txt",
+    "volume_mpc3": 1091611.278272963
+  },
+  "cosmology": {
+    "Omega_b": 0.06898468,
+    "Omega_m": 0.37714739,
+    "boxlength_mpc_h": 1600.0,
+    "h": 0.6697905900000001,
+    "w_0": -0.47977999,
+    "w_a": -2.23444064
+  },
+  "counts": {
+    "n_selected_particles": 35608
+  },
+  "created_utc": "2026-08-30T12:50:35.659930Z",
+  "inputs": {
+    "fof": "/snap8/scratch/dp004/dc-love2/tessera/v0tessera/parents/00000/fof_output_0000.hdf5",
+    "grid": "/snap8/scratch/dp004/dc-love2/tessera/v0tessera/parents/00000/grid_output.hdf5",
+    "ic_snap": "/snap8/scratch/dp004/dc-love2/tessera/v0tessera/parents/00000/music2_ICs.hdf5",
+    "parent_config": "catalogue/parent_confs/00000_music2_parent.conf",
+    "parent_config_source": "/snap8/scratch/dp004/dc-love2/tessera/v0tessera/parents/00000/music2_parent.conf",
+    "snap": "/snap8/scratch/dp004/dc-love2/tessera/v0tessera/parents/00000/pmwd_z0.hdf5"
+  },
+  "label": "p00000_r0310_i000_pct038.921",
+  "levels": {
+    "parent_levelmin": 10,
+    "zoom_levelmax": 13,
+    "zoom_levelmin": 6
+  },
+  "mass_summary": {
+    "bbox_parent_mass_1e10msun_h": 4904788.690795898,
+    "bbox_parent_particle_count": 82280,
+    "highres_particle_mass_1e10msun_h": 0.11642763018608093,
+    "mean_density_1e10msun_mpc3": 1.9444894265467667,
+    "n_high_for_selection_mass": 18231296.0,
+    "n_high_geom_bbox": 44024559.812617406,
+    "n_high_in_bbox_if_filled": 42127360.0,
+    "parent_particle_mass_1e10msun_h": 59.61094665527344,
+    "total_mass_selection_1e10msun": 2122626.5885009766
+  },
+  "outputs": {
+    "metadata": "/snap7/scratch/dp004/dc-love2/tessera/v0tessera/zooms/P00000/R0000/zoom_selection.json",
+    "music2_zoom_conf": "/snap7/scratch/dp004/dc-love2/tessera/v0tessera/zooms/P00000/R0000/music2_zoom.conf",
+    "region_point_file": "/snap7/scratch/dp004/dc-love2/tessera/v0tessera/zooms/P00000/R0000/region_points.txt",
+    "swift_params_yaml": "/snap7/scratch/dp004/dc-love2/tessera/v0tessera/zooms/P00000/R0000/swift_zoom_params.yaml",
+    "zoom_ics_hdf5": "/snap7/scratch/dp004/dc-love2/tessera/v0tessera/zooms/P00000/R0000/zoom_ICS_0000.hdf5"
+  },
+  "parent_idx": 0,
+  "region_shape": "ellipsoid",
+  "run_dir": "/snap7/scratch/dp004/dc-love2/tessera/v0tessera/zooms/P00000/R0000",
+  "schema": "tessera.zoom_selection.v2",
+  "selection": {
+    "absorbed_halo_count": 2,
+    "center_mpc": [
+      1595.6479770789254,
+      793.1583511795827,
+      662.5205051029455
+    ],
+    "chosen_attempt": 0,
+    "chosen_rank": 0,
+    "delta": -0.08148643192983773,
+    "effective_radius_mpc": 57.50779656305468,
+    "grid_index": 1398051,
+    "kernel_index": 3,
+    "log10_1p_delta": -0.036914424013067014,
+    "mode": "kernel",
+    "selection_radius_mpc": 46.283122589227,
+    "target_logdelta": -0.036914424013067014,
+    "target_rank": 0
+  },
+  "zoom_index": 0
+}
